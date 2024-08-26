@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Board from "./components/Board";
 
-const WebSocketURL = "ws://localhost:8080";
+// const WebSocketURL = "ws://localhost:8080";
+const WebSocketURL = "wss://shatranjh.onrender.com/";
 
 const App = () => {
     const [ws, setWs] = useState(null);
