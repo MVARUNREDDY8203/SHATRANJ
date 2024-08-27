@@ -1,42 +1,120 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
 }
 
 .logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+    height: 6em;
+    padding: 1.5em;
+    will-change: filter;
+    transition: filter 300ms;
 }
 .logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+    filter: drop-shadow(0 0 2em #646cffaa);
 }
 .logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+    filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
 @keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+    a:nth-of-type(2) .logo {
+        animation: logo-spin infinite 20s linear;
+    }
 }
 
 .card {
-  padding: 2em;
+    padding: 2em;
 }
 
 .read-the-docs {
-  color: #888;
+    color: #888;
+}
+
+.shatranj-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    flex-direction: column;
+}
+
+.room-setup-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px; /* Space between input and button container */
+}
+
+.room-setup-container input {
+    width: 200px;
+    padding: 10px;
+    margin-bottom: 10px; /* Space below the input */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%; /* Adjust as needed */
+    max-width: 320px; /* Ensures a maximum width for the buttons */
+    gap: 10px; /* Space between the buttons */
+}
+
+.button-container button {
+    flex: 1;
+    padding: 10px;
+    /* background-color: #4CAF50; */
+    color: white;
+    /* border: none; */
+    /* border-radius: 4px; */
+    cursor: pointer;
+}
+
+.button-container button:hover {
+    /* background-color: #45a049; */
+}
+
+.pieces-setup-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px; /* Space between p, input, and button */
+}
+
+.pieces-setup-container p {
+    text-align: center;
+    margin-bottom: 10px; /* Space below the informational text */
+}
+
+.pieces-setup-container input {
+    width: 200px;
+    padding: 10px;
+    border: 1px solid;
+    border-radius: 4px;
+}
+
+.pieces-setup-container button {
+    padding: 10px 20px;
+    /* background-color: #4caf50; */
+    /* color: white; */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.pieces-setup-container button:hover {
+    /* background-color: #45a049; */
 }

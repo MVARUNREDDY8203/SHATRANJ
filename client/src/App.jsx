@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Board from "./components/Board";
-
-// const WebSocketURL = "ws://localhost:8080";
-const WebSocketURL = "wss://shatranjh.onrender.com/";
+import "./App.css";
+const WebSocketURL = "ws://localhost:8080";
+// const WebSocketURL = "wss://shatranjh.onrender.com/";
 
 const App = () => {
     const [ws, setWs] = useState(null);
@@ -87,23 +87,26 @@ const App = () => {
     };
 
     return (
-        <div>
+        <div className='shatranj-container'>
+            <h1>SHATRANJ</h1>
             {/* INTIIAL STATE / LANDING STATE - CREATE/ JOIN ROOM */}
             {playerType === "" && (
-                <div>
-                    <button onClick={createRoom}>Create Room</button>
+                <div className='room-setup-container'>
                     <input
                         type='text'
                         placeholder='Room Code'
                         onChange={(e) => setRoomCode(e.target.value)}
                     />
-                    <button onClick={() => joinRoom(roomCode)}>
-                        Join Room
-                    </button>
+                    <div className='button-container'>
+                        <button onClick={createRoom}>Create Room</button>
+                        <button onClick={() => joinRoom(roomCode)}>
+                            Join Room
+                        </button>
+                    </div>
                 </div>
             )}
             {/* A HAS JOINED, WAITING FOR B + WAITING FOR SETUP */}
-            {playerType === "A" && roomCode && waitingForSetup && (
+            {roomCode && waitingForSetup && (
                 <div>
                     <p>Your room code: {roomCode}</p>
                     {waitingForOpponent ? (
@@ -113,19 +116,23 @@ const App = () => {
                     )}
                 </div>
             )}
-
             {/* player A or B has joined the room and need to select pieces config */}
             {playerType !== "" && !waitingForOpponent && (
-                <div>
+                <div className='pieces-setup-container'>
                     {!gameState && (
-                        <textarea
-                            placeholder='Enter your pieces configuration (e.g., pppqr). YOU CAN CHOOSE ANY CONFIGURATION OF P / Q / R'
-                            value={pieces}
-                            onChange={handleChange}
-                            maxLength='5'
-                            rows='1'
-                            cols='20'
-                        />
+                        <>
+                            <p>
+                                Enter your pieces configuration (e.g., pppqr).
+                                YOU CAN CHOOSE ANY CONFIGURATION OF P / Q / R
+                            </p>
+                            <input
+                                type='text'
+                                placeholder='pppqr'
+                                value={pieces}
+                                onChange={handleChange}
+                                maxLength='5'
+                            />
+                        </>
                     )}
                     {error && <p style={{ color: "red" }}>{error}</p>}
                     {!gameState && (
@@ -133,11 +140,9 @@ const App = () => {
                     )}
                 </div>
             )}
-
             {playerType === "B" && waitingForOpponent && (
                 <p>Waiting for opponent to set up pieces...</p>
             )}
-
             {/* actual game here */}
             {!waitingForOpponent && !waitingForSetup && gameState && (
                 <>
