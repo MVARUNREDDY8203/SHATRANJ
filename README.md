@@ -41,3 +41,8 @@ A brief description of what this project does:
         - Potential Moves 
         - Sends request to server for every move played and requests updation of gamestate
         - Landing UI
+
+
+##### BLOOPERS/ WORK IN PROGRESS 
+![image](https://github.com/user-attachments/assets/eea6894f-db18-49ff-813c-12b02aaa93fa)
+
