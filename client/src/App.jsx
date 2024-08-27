@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Board from "./components/Board";
 import "./App.css";
-const WebSocketURL = "ws://localhost:8080";
-// const WebSocketURL = "wss://shatranjh.onrender.com/";
+// const WebSocketURL = "ws://localhost:8080";
+const WebSocketURL = "wss://shatranjh.onrender.com/";
 
 const App = () => {
     const [ws, setWs] = useState(null);
@@ -149,7 +149,12 @@ const App = () => {
                     {playerType && <p>You are playing as : {playerType}</p>}
                     {winner && playerType === winner && <p>You Won!!!</p>}
                     {winner && playerType != winner && <p>You Lost</p>}
-                    {!winner && <p>current turn: {gameState.turn}</p>}
+                    {!winner && gameState.turn == playerType && (
+                        <p>YOUR TURN</p>
+                    )}
+                    {!winner && gameState.turn != playerType && (
+                        <p>OPPONENT'S TURN</p>
+                    )}
                     <Board
                         gameState={gameState}
                         currentPlayer={playerType}
